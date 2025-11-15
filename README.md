@@ -616,7 +616,7 @@ fprintf(
 ```
 
 The SIGSEGV is probably caused by the fact that the first parameter is not a file descriptor but a
-null pointer. Where `iVar1`` is just a reference to the input of the `httpd_parser_main` function.
+null pointer. Where `iVar1` is just a reference to the input of the `httpd_parser_main` function.
 This means that the fuzzing input must have a file descriptor at position 0x101c.  So the input must
 be adjusted to the following struct.
 
@@ -627,7 +627,7 @@ typedef struct  {
   int socket; // 4 Bytes
   int ip;     // 4 Bytes
   int mac;    // 4 Bytes
-  unsigned char body[0x1008]; 0x101c - 4*5 = 0x1008 Bytes
+  unsigned char body[0x1008]; // 0x101c - 4*5 = 0x1008 Bytes
   FILE * fd_out; // expected to be a valid file descriptor
 } HttpMainT;
 ```

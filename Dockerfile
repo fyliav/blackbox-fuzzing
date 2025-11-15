@@ -10,7 +10,7 @@ RUN apt update && apt install -y \
 # Qemu statics are installed at /usr/bin/qemu-mipsel-static
 
 # Compiling AFL++
-RUN apt install -y git make build-essential clang ninja-build pkg-config libglib2.0-dev libpixman-1-dev
+RUN apt install -y git make build-essential clang ninja-build pkg-config libglib2.0-dev libpixman-1-dev meson
 RUN git clone https://github.com/AFLplusplus/AFLplusplus /AFLplusplus
 WORKDIR /AFLplusplus
 RUN make all
